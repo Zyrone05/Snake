@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Snake</title>
+    <link rel="stylesheet" type="text/css" href="Index.css">
 </head>
 
 <body>
-
-    <canvas id="canvas" width="720" height="720"></canvas>
+<div id="alles">
+    <canvas id="canvas" width="720" height="720" ></canvas>
+    <div id="rechts">
+        <label  id="punktestand">0</label>
+    </div>
+</div>
 
     <script>
     let canvas = document.getElementById('canvas');
@@ -34,6 +39,9 @@
 
     //Schlange wächst
     let foodCollected = false;
+
+    //Variable für länge der Schlange
+    let punkte = 0;
 
     //Aktion wird ausgeführt
     placeFood();
@@ -78,17 +86,22 @@
     //Tastaturen druck mit Aktion was passiert wenn
     function keyDown(e) {
         if (e.keyCode == 37) {
+            if(direction != 'RIGHT'){
             direction = 'LEFT';
-        }
+        }}
         if (e.keyCode == 38) {
+            if(direction != 'DOWN'){
             direction = 'UP';
-        }
+        }}
         if (e.keyCode == 39) {
+            if(direction != 'LEFT'){
             direction = 'RIGHT';
-        }
+        }}
+
         if (e.keyCode == 40) {
+            if(direction != 'UP'){
             direction = 'DOWN';
-        }
+        }}
     }
 
     //Aktion die  das Food random berechnet
@@ -132,15 +145,25 @@
     //legt die Richtung um
     function gameLoop(){
 
+
+        let punktestand = document.getElementById('punktestand');
+        punktestand.innerHTML= punkte;
+
+
+        //Seiten Wechsel auf GAME OVER
+        var bedingung = true;
          boolean: gameover = testGameover();
          if (gameover){
 
-        alert('kaputt!')
+            window.location.href = "gameOver.html";
 
          }
 
 
         if (foodCollected){
+
+            punkte++;
+
             snake = [{
                 x: snake[0].x,
                 y: snake[0].y
@@ -173,5 +196,6 @@
         }
     }
     </script>
+
 </body>
 </html>

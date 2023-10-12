@@ -1,0 +1,12 @@
+#label {
+    position: relative;
+    top: 280px;
+    left: 1000px;
+    font-size: 10px;
+}
+#alles{width:100%;}
+#canvas{float:left;}
+#rechts{float:right;}
+#punktestand{ margin:0 auto;
+    font-size: 800px}
+
