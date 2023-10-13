@@ -6,14 +6,22 @@
     <link rel="stylesheet" type="text/css" href="GameOver.css">
 </head>
 <body>
-        <button id="meinButton">START</button>
+<button id="meinButton">START</button>
+<p id="PunktestandgameOver">Punktestand: <span id="punktestandAnzeige"></span></p>
+<script>
+    //Knopf um zu Starten
+    let button = document.getElementById("meinButton");
+    button.addEventListener("click", function (){
+        window.location.href = "index.html";
+    });
 
-        <script>
-            var button = document.getElementById("meinButton");
-            button.addEventListener("click", function (){
-                window.location.href = "index.html";
-            });
+    // JavaScript, um den Punktestand aus der URL zu extrahieren
+    let urlParams = new URLSearchParams(window.location.search);
+    let punktestand = urlParams.get("punktestand");
 
-        </script>
+    // Den Punktestand in das HTML-Element einfügen
+    let punktestandAnzeige = document.getElementById("punktestandAnzeige");
+    punktestandAnzeige.textContent = punktestand;
+</script>
 </body>
 </html>

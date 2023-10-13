@@ -6,10 +6,14 @@
     padding: 2rem;
     color: white;
     cursor: pointer;
-    position: relative;;
+    position: relative;
     top: 280px;
-    left: 250px;
+    left: 750px;
+}
 
-
-
+#PunktestandgameOver{
+    top: 250px;
+    left: 1150px;
+    font-size: 35px;
+    font-family: 'Digital-7', sans-serif;
 }
